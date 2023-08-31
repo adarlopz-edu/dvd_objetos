@@ -1,7 +1,4 @@
-#include<stdio.h>
-#include<conio.h>
 #include<windows.h>
-#include <string>
 #include <iostream>
 
 using namespace std;
@@ -16,34 +13,36 @@ void gotoxy(int x, int y) {
 }
 
 class Pelota {
+
     private: //atributos
         string caracter;
+        int x;
+        int y;
+        int k;
+        int l;
 
     public:
-        Pelota(string); //constructor
+        Pelota(string, int, int, int, int); //constructor
         void mover();
         void rebotar();
 
 };
 
-
-Pelota::Pelota(string _caracter) {
+Pelota::Pelota(string _caracter, int  _x, int _y, int _k, int _l) {
     caracter = _caracter;
+    x = _x;
+    y = _y;
+    k = _k;
+    l = _l;
 }
 
-//FINISH PERO TENGO QUE ARREGLAR LAS VARIABLES GLOBALES
-
-int x = 1, y = 1, k = 1, l = 1;
-
 void Pelota::mover() {
-    //do {
-        system("cls");
-        gotoxy(x, y);
-        cout << caracter;
-        x = x + k;
-        y = y + l;
-        Sleep(50);
-   // } while (1 == 1);
+    system("cls");
+    gotoxy(x, y);
+    cout << caracter;
+    x = x + k;
+    y = y + l;
+    Sleep(50);
 }
 
 void Pelota::rebotar() {
@@ -53,12 +52,9 @@ void Pelota::rebotar() {
 
 
 int main() {
-
-
-    Pelota pelota = Pelota("DVD");
+    Pelota pelota = Pelota("DVD", 1, 1, 1, 1);
     do {
-    pelota.mover();
-    pelota.rebotar();
+        pelota.mover();
+        pelota.rebotar();
     } while (1 == 1);
-
 }
